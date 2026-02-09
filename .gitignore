@@ -1,0 +1,16 @@
+# Logs e temporários
+*.log
+*.tmp
+*.bak
+
+# Arquivos sensíveis
+wazuh-install-files.tar
+config.yml
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
