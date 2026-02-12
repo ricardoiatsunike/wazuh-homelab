@@ -1,26 +1,25 @@
 # Wazuh Home Lab
 
-Documentação técnica para implantação de um **Wazuh Home Lab** em ambiente virtualizado, voltado para **monitoramento**, **SIEM**, **HIDS** e **treinamento prático de SOC**.
+Documentação técnica para implantação de um **SOC Home Lab** em ambiente virtualizado, voltado para **monitoramento**, **SIEM**, **HIDS** e **treinamento prático**.
 
 ---
 
 ## Objetivo
 
-Construir um laboratório funcional do Wazuh para estudo prático de:
+Construir um laboratório funcional usando a plataforma de segurança open-source Wazuh para estudo prático de:
 
 - Monitoramento de endpoints
 - Coleta e análise de logs
 - Detecção de incidentes
-- Rotina operacional de SOC (Tier 1 / Tier 2)
+- Rotina operacional de SOC
 
 ---
 
 ## Ambiente
 
 - Hypervisor: VirtualBox / VMware
-- Sistema Operacional: Ubuntu Server LTS
+- Sistema Operacional: Ubuntu Server 24.04.3 LTS
 - Wazuh: versão 4.14
-- Endpoints monitorados: Windows
 
 ---
 
