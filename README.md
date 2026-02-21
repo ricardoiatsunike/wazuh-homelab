@@ -62,6 +62,7 @@ sudo ufw allow 9300/tcp
 ### Portas – Wazuh Manager
 ```bash
 sudo ufw allow 1514/tcp
+sudo ufw allow 1514/udp
 sudo ufw allow 1515/tcp
 sudo ufw allow 1516/tcp
 sudo ufw allow 55000/tcp
