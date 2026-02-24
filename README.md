@@ -1,6 +1,6 @@
-## Estudo e Prática de Cibersegurança com Wazuh e Metasploitable 3
+## Homelab de Cibersegurança com Wazuh e Metasploitable 3
 
-Documentação do desenvolvimento e utilização de um ambiente controlado de cibersegurança voltado para prática ofensiva e monitoramento defensivo.
+Documentação do desenvolvimento e utilização de um ambiente controlado de cibersegurança voltado para estudo prático ofensivo e monitoramento defensivo.
 
 O ambiente integra:
 
@@ -72,7 +72,7 @@ O ambiente integra:
 </details>
 ---
 
-## Deploy Completo do Ambiente
+## Deploy do Ambiente
 
 ### Configuração de Rede no VMware
 
@@ -219,7 +219,7 @@ hydra -l anonymous -P /usr/share/wordlists/rockyou.txt ftp://192.168.12.100
 hydra -l postgres -P /usr/share/wordlists/rockyou.txt 192.168.12.100 postgres
 ```
 
-## Perspectiva SOC:
+## Perspectiva defensiva no servidor:
 <img width="810" height="154" alt="image" src="https://github.com/user-attachments/assets/8e942d35-f897-408d-833f-ca97fb3342f5" />
 
 ---
@@ -233,6 +233,9 @@ use exploit/unix/misc/distcc_exec
 use exploit/multi/http/tomcat_mgr_upload
 use auxiliary/scanner/postgres/postgres_login
 ```
+
+<img width="313" height="151" alt="image" src="https://github.com/user-attachments/assets/d61e0c0b-bb79-4a39-af7c-d64938440aef" />
+
 
 ---
 
