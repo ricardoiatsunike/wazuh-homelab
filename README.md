@@ -1,16 +1,23 @@
-# 🛡 Cybersecurity Home Lab --- Wazuh + Metasploitable 3
+# Home Lab de Cibersegurança --- Wazuh + Metasploitable 3
 
-Laboratório completo e documentado para prática de segurança ofensiva,
-detecção, engenharia de detecção, monitoramento SOC e análise de
-eventos.
+Este projeto documenta o desenvolvimento e a utilização de um
+laboratório controlado de cibersegurança voltado para prática ofensiva e
+monitoramento defensivo.
 
-Este repositório consolida **infraestrutura, metodologia ofensiva,
-telemetria e detecção**, formando um ambiente realista para simulação do
-ciclo completo de ataque e resposta.
+O ambiente integra:
+
+-   Wazuh como plataforma SIEM
+-   Metasploitable 3 (ub1404) como alvo vulnerável
+-   Ferramentas ofensivas executadas via WSL2
+-   VMware Workstation Pro para segmentação e virtualização
+
+O objetivo é simular cenários realistas de ataque enquanto os eventos
+são monitorados e correlacionados em tempo real pelo Wazuh,
+proporcionando experiência prática alinhada às atividades de um SOC.
 
 ------------------------------------------------------------------------
 
-# 📌 Visão Geral
+# Visão Geral
 
 O ambiente foi construído para simular um fluxo real de operação:
 
@@ -24,19 +31,19 @@ parte dos cenários ativos.
 
 ------------------------------------------------------------------------
 
-# 🎯 Objetivos do Projeto
+# Objetivos do Projeto
 
 -   Praticar técnicas de pentest em ambiente isolado
 -   Entender geração de logs em sistemas vulneráveis
 -   Analisar como um SIEM correlaciona eventos
 -   Criar regras customizadas no Wazuh
--   Simular rotina de SOC (Tier 1)
+-   Simular rotina de SOC N1
 -   Documentar tecnicamente cada fase do ataque
 -   Desenvolver visão ofensiva e defensiva integrada
 
 ------------------------------------------------------------------------
 
-# 🏗 Arquitetura do Ambiente
+# Arquitetura do Ambiente
 
 Host: Windows 10
 
@@ -52,26 +59,26 @@ Rede interna isolada: 192.168.X.0/24
 
 ------------------------------------------------------------------------
 
-# 🧱 Componentes
+# Componentes
 
-## 🔹 Wazuh
+## Wazuh
 
 -   Indexer
 -   Server
 -   Dashboard
 
-## 🔹 Máquina Vulnerável
+## Máquina Vulnerável
 
 -   Metasploitable 3 (ub1404)
 
-## 🔹 Infraestrutura
+## Infraestrutura
 
 -   VMware Workstation Pro 17+
 -   Vagrant 2.4+
 -   Packer 1.15+
 -   Git
 
-## 🔹 Ferramentas Ofensivas
+## Ferramentas Ofensivas
 
 -   Nmap
 -   Hydra
@@ -82,15 +89,15 @@ Rede interna isolada: 192.168.X.0/24
 
 ------------------------------------------------------------------------
 
-# 💻 Requisitos Técnicos
+# Requisitos Técnicos
 
 Hardware recomendado: - 16GB RAM - 4+ cores - SSD
 
 ------------------------------------------------------------------------
 
-# 🚀 Deploy Completo do Ambiente
+# Deploy Completo do Ambiente
 
-## 1️⃣ Configuração de Rede no VMware
+## Configuração de Rede no VMware
 
 Virtual Network Editor:
 
@@ -99,7 +106,7 @@ Virtual Network Editor:
 
 ------------------------------------------------------------------------
 
-## 2️⃣ Instalação do Wazuh (Ubuntu 24.04)
+## Instalação do Wazuh (Ubuntu 24.04)
 
 Criar VM com:
 
@@ -158,7 +165,7 @@ sudo ufw --force enable
 
 ------------------------------------------------------------------------
 
-## 3️⃣ Deploy do Metasploitable 3
+## Deploy do Metasploitable 3
 
 ``` powershell
 vagrant plugin install vagrant-vmware-desktop
@@ -173,7 +180,7 @@ vagrant up --provider=vmware_desktop
 
 ------------------------------------------------------------------------
 
-## 4️⃣ Configuração de IP Estático (Linux)
+## Configuração de IP Estático (Linux)
 
 ``` bash
 sudo ip addr add 192.168.12.130/24 dev eth1
@@ -182,7 +189,7 @@ sudo ip link set eth1 up
 
 ------------------------------------------------------------------------
 
-## 5️⃣ Instalação do Agente Wazuh
+## Instalação do Agente Wazuh
 
 ``` bash
 curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo apt-key add -
@@ -200,7 +207,7 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ------------------------------------------------------------------------
 
-# 🔎 Metodologia Operacional
+# Metodologia Operacional
 
 1.  Reconhecimento de superfície
 2.  Enumeração de serviços
@@ -213,7 +220,7 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ------------------------------------------------------------------------
 
-# 🛰 Enumeração (Nmap)
+# Enumeração (Nmap)
 
 ``` bash
 nmap -sS -sV -p445 --script smb-enum-shares,smb-os-discovery <ip_alvo>
@@ -224,7 +231,7 @@ nmap -sV -p80 --script http-enum,http-methods,http-title <ip_alvo>
 
 ------------------------------------------------------------------------
 
-# 🔐 Ataques de Autenticação (Hydra)
+# Ataques de Autenticação (Hydra)
 
 ``` bash
 hydra -l msfadmin -P rockyou.txt ssh://<ip_alvo>
@@ -234,7 +241,7 @@ hydra -l postgres -P rockyou.txt <ip_alvo> postgres
 
 ------------------------------------------------------------------------
 
-# 💣 Exploração Remota (Metasploit)
+# Exploração Remota (Metasploit)
 
 ``` bash
 search samba
@@ -245,7 +252,7 @@ auxiliary/scanner/postgres/postgres_login
 
 ------------------------------------------------------------------------
 
-# 🌐 Descoberta de Vulnerabilidades Web
+# Descoberta de Vulnerabilidades Web
 
 ``` bash
 nikto -h http://<ip_alvo>
@@ -254,7 +261,7 @@ gobuster dir -u http://<ip_alvo> -w wordlist.txt
 
 ------------------------------------------------------------------------
 
-# 🧠 Engenharia de Detecção (Wazuh)
+# Engenharia de Detecção (Wazuh)
 
 Arquivo:
 
@@ -279,7 +286,7 @@ sudo systemctl restart wazuh-manager
 
 ------------------------------------------------------------------------
 
-# 📊 Evolução Planejada (Roadmap)
+# Evolução Planejada (Roadmap)
 
 -   Integração da VM Windows (win2k8)
 -   Simulação de movimentação lateral
@@ -290,7 +297,7 @@ sudo systemctl restart wazuh-manager
 
 ------------------------------------------------------------------------
 
-# ⚖ Aviso Ético
+# Aviso Ético
 
 Todos os testes são realizados exclusivamente em ambiente isolado para
 fins educacionais. Nenhum sistema externo é alvo de testes.
