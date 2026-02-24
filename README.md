@@ -24,13 +24,13 @@ O ambiente integra:
 
 ## Arquitetura do Ambiente
 
-**Host:** Windows  
-├── WSL2 (ambiente ofensivo)  
-└── VMware Workstation Pro  
-├── Wazuh Server (Ubuntu 24.04)  
-├── NAT (acesso à internet)  
-└── Host-only (rede interna isolada)  
-└── Metasploitable 3 (ub1404) – alvo vulnerável  
+• Host: Windows  
+• WSL2 - ambiente ofensivo
+• VMware Workstation Pro
+• Wazuh Server (Ubuntu 24.04)  
+• NAT
+• Host-only - rede interna isolada  
+• Metasploitable 3 (ub1404) – alvo
 
 **Rede interna isolada:** `192.168.12.0/24`
 
