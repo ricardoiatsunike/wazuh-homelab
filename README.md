@@ -1,4 +1,4 @@
-# Home Lab de Cibersegurança --- Wazuh + Metasploitable 3
+# Home Lab de Cibersegurança com Wazuh e Metasploitable 3
 
 Este projeto documenta o desenvolvimento e a utilização de um
 laboratório controlado de cibersegurança voltado para prática ofensiva e
