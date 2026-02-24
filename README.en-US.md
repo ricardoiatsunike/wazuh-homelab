@@ -1,15 +1,22 @@
-# 🛡 Cybersecurity Home Lab --- Wazuh + Metasploitable 3
+# Cybersecurity Home Lab with Wazuh and Metasploitable 3
 
-A fully documented laboratory environment for offensive security
-practice, detection engineering, SOC monitoring, and event analysis.
+This project documents the development and usage of a controlled cybersecurity laboratory focused on offensive practice and defensive monitoring.
 
-This repository consolidates **infrastructure, offensive methodology,
-telemetry, and detection engineering**, creating a realistic environment
-to simulate the full attack and response lifecycle.
+The environment integrates:
+
+Wazuh as the SIEM platform
+
+Metasploitable 3 (ub1404) as the vulnerable target
+
+Offensive tools executed via WSL2
+
+VMware Workstation Pro for segmentation and virtualization
+
+The objective is to simulate realistic attack scenarios while events are monitored and correlated in real time by Wazuh, providing hands-on experience aligned with SOC operations.
 
 ------------------------------------------------------------------------
 
-# 📌 Overview
+# Overview
 
 This environment was designed to simulate a real-world operational flow:
 
@@ -22,7 +29,7 @@ is not yet part of the active scenarios.
 
 ------------------------------------------------------------------------
 
-# 🎯 Project Objectives
+# Project Objectives
 
 -   Practice penetration testing techniques in an isolated environment
 -   Understand log generation in vulnerable systems
@@ -34,7 +41,7 @@ is not yet part of the active scenarios.
 
 ------------------------------------------------------------------------
 
-# 🏗 Environment Architecture
+# Environment Architecture
 
 Host: Windows 10
 
@@ -50,26 +57,26 @@ Isolated internal network: 192.168.X.0/24
 
 ------------------------------------------------------------------------
 
-# 🧱 Components
+# Components
 
-## 🔹 Wazuh
+## Wazuh
 
 -   Indexer
 -   Server
 -   Dashboard
 
-## 🔹 Vulnerable Machine
+## Vulnerable Machine
 
 -   Metasploitable 3 (ub1404)
 
-## 🔹 Infrastructure
+## Infrastructure
 
 -   VMware Workstation Pro 17+
 -   Vagrant 2.4+
 -   Packer 1.15+
 -   Git
 
-## 🔹 Offensive Tools
+## Offensive Tools
 
 -   Nmap
 -   Hydra
@@ -92,7 +99,7 @@ Recommended hardware:
 
 # 🚀 Full Environment Deployment
 
-## 1️⃣ VMware Network Configuration
+## VMware Network Configuration
 
 Virtual Network Editor:
 
@@ -101,7 +108,7 @@ Virtual Network Editor:
 
 ------------------------------------------------------------------------
 
-## 2️⃣ Wazuh Installation (Ubuntu 24.04)
+## Wazuh Installation (Ubuntu 24.04)
 
 Create VM with:
 
@@ -160,7 +167,7 @@ sudo ufw --force enable
 
 ------------------------------------------------------------------------
 
-## 3️⃣ Metasploitable 3 Deployment
+## 3️Metasploitable 3 Deployment
 
 ``` powershell
 vagrant plugin install vagrant-vmware-desktop
@@ -184,7 +191,7 @@ sudo ip link set eth1 up
 
 ------------------------------------------------------------------------
 
-## 5️⃣ Wazuh Agent Installation
+## Wazuh Agent Installation
 
 ``` bash
 curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo apt-key add -
@@ -202,7 +209,7 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ------------------------------------------------------------------------
 
-# 🔎 Operational Methodology
+# Operational Methodology
 
 1.  Surface reconnaissance
 2.  Service enumeration
@@ -215,7 +222,7 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ------------------------------------------------------------------------
 
-# 🛰 Enumeration (Nmap)
+# Enumeration (Nmap)
 
 ``` bash
 nmap -sS -sV -p445 --script smb-enum-shares,smb-os-discovery <target_ip>
@@ -226,7 +233,7 @@ nmap -sV -p80 --script http-enum,http-methods,http-title <target_ip>
 
 ------------------------------------------------------------------------
 
-# 🔐 Authentication Attacks (Hydra)
+# Authentication Attacks (Hydra)
 
 ``` bash
 hydra -l msfadmin -P rockyou.txt ssh://<target_ip>
@@ -236,7 +243,7 @@ hydra -l postgres -P rockyou.txt <target_ip> postgres
 
 ------------------------------------------------------------------------
 
-# 💣 Remote Exploitation (Metasploit)
+# Remote Exploitation (Metasploit)
 
 ``` bash
 search samba
@@ -247,7 +254,7 @@ auxiliary/scanner/postgres/postgres_login
 
 ------------------------------------------------------------------------
 
-# 🌐 Web Vulnerability Discovery
+# Web Vulnerability Discovery
 
 ``` bash
 nikto -h http://<target_ip>
@@ -256,7 +263,7 @@ gobuster dir -u http://<target_ip> -w wordlist.txt
 
 ------------------------------------------------------------------------
 
-# 🧠 Detection Engineering (Wazuh)
+# Detection Engineering (Wazuh)
 
 File:
 
@@ -281,7 +288,7 @@ sudo systemctl restart wazuh-manager
 
 ------------------------------------------------------------------------
 
-# 📊 Planned Evolution (Roadmap)
+# Planned Evolution (Roadmap)
 
 -   Windows VM (win2k8) integration
 -   Lateral movement simulation
@@ -292,11 +299,9 @@ sudo systemctl restart wazuh-manager
 
 ------------------------------------------------------------------------
 
-# ⚖ Ethical Notice
+# Ethical Notice
 
 All tests are conducted exclusively in an isolated laboratory
 environment for educational purposes. No external systems are targeted.
 
 ------------------------------------------------------------------------
-
-Document generated on 2026-02-24 18:36:09 UTC
