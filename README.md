@@ -5,20 +5,9 @@ Documentação do desenvolvimento e utilização de um ambiente controlado de ci
 O ambiente integra:
 
 - Wazuh como plataforma SIEM
-- Metasploitable 3 (ub1404) como alvo vulnerável
+- Metasploitable 3 como alvo vulnerável
 - Ferramentas ofensivas executadas via WSL2
 - VMware Workstation Pro para segmentação e virtualização
-
----
-
-## Visão Geral
-
-O ambiente foi construído para simular um fluxo real de operação:
-
-**Reconhecimento → Enumeração → Ataque → Exploração → Pós-exploração → Geração de logs → Detecção → Análise → Criação de regra → Resposta**
-
-O foco atual do laboratório está na máquina **Linux (Metasploitable 3 - ub1404)**.  
-A VM Windows (win2k8) será integrada futuramente.
 
 ---
 
@@ -55,7 +44,7 @@ A VM Windows (win2k8) será integrada futuramente.
 - Dashboard
 
 ### Máquina Vulnerável
-- Metasploitable 3 (ub1404) – Linux
+- Metasploitable 3 (ub1404)
 
 ### Infraestrutura
 - VMware Workstation Pro 17+
