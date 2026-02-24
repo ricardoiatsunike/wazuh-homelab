@@ -279,12 +279,12 @@ sudo systemctl restart wazuh-manager
 
 ## Evolução Planejada (Roadmap)
 
-- [ ] Integração da VM Windows (win2k8)
-- [ ] Simulação de movimentação lateral
-- [ ] Implementação de alertas baseados em MITRE ATT&CK
-- [ ] Dashboards personalizados no Wazuh
-- [ ] Simulação de resposta a incidente documentada
-- [ ] Criação de playbooks SOC
+- Integração da VM Windows (win2k8)
+- Simulação de movimentação lateral
+- Implementação de alertas baseados em MITRE ATT&CK
+- Dashboards personalizados no Wazuh
+- Simulação de resposta a incidente documentada
+- Criação de playbooks SOC
 
 ---
 
