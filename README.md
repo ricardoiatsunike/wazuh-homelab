@@ -5,7 +5,7 @@ Documentação do desenvolvimento e utilização de um ambiente controlado de ci
 O ambiente integra:
 
 - Wazuh como plataforma SIEM
-- Metasploitable 3 como alvo vulnerável
+- VM Metasploitable 3 como alvo vulnerável
 - Ferramentas ofensivas executadas via WSL2
 - VMware Workstation Pro para segmentação e virtualização
 
@@ -18,7 +18,7 @@ O ambiente integra:
 - Analisar como um SIEM correlaciona eventos
 - Criar regras customizadas de detecção
 - Simular rotina de SOC (detecção, triagem, resposta)
-- Elaborar documentação técnica clara e reproduzível
+- Elaborar documentação técnica
 
 ---
 
@@ -161,7 +161,7 @@ vagrant up --provider=vmware_desktop
 ### Configuração de IP Estático (Linux)
 
 ```bash
-sudo ip addr add 192.168.12.130/24 dev eth1
+sudo ip addr add 192.168.12.100/24 dev eth1
 sudo ip link set eth1 up
 ```
 
@@ -201,10 +201,10 @@ sudo tail -f /var/ossec/logs/ossec.log
 ## Enumeração com Nmap
 
 ```bash
-nmap -sS -sV -p445 --script smb-enum-shares,smb-os-discovery 192.168.12.130
-nmap -sV -p21 --script ftp-anon,ftp-vsftpd-backdoor 192.168.12.130
-nmap -sV -p22 --script ssh-auth-methods 192.168.12.130
-nmap -sV -p80 --script http-enum,http-methods,http-title 192.168.12.130
+nmap -sS -sV -p445 --script smb-enum-shares,smb-os-discovery 192.168.12.100
+nmap -sV -p21 --script ftp-anon,ftp-vsftpd-backdoor 192.168.12.100
+nmap -sV -p22 --script ssh-auth-methods 192.168.12.100
+nmap -sV -p80 --script http-enum,http-methods,http-title 192.168.12.100
 ```
 
 ---
@@ -239,7 +239,7 @@ use auxiliary/scanner/postgres/postgres_login
 ## Descoberta de Vulnerabilidades Web
 
 ```bash
-nikto -h http://192.168.12.130
+nikto -h http://192.168.12.100
 gobuster dir -u http://192.168.12.100 -w /usr/share/wordlists/dirb/common.txt
 ```
 
