@@ -35,13 +35,13 @@ A VM Windows (win2k8) será integrada futuramente.
 
 # Arquitetura do Ambiente
 
-**Host:** Windows  
-├── WSL2 (ambiente ofensivo)  
-└── VMware Workstation Pro  
-&nbsp;&nbsp;&nbsp;&nbsp;├── Wazuh Server (Ubuntu 24.04)  
-&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── NAT (acesso à internet)  
-&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── Host-only (rede interna isolada)  
-&nbsp;&nbsp;&nbsp;&nbsp;└── Metasploitable 3 (ub1404) – alvo vulnerável  
+Host: Windows 
+WSL2 (ambiente ofensivo)  
+VMware Workstation Pro  
+Wazuh (Ubuntu 24.04)  
+NAT 
+Host-only (rede interna isolada)  
+Metasploitable 3 (ub1404) – alvo vulnerável  
 
 **Rede interna isolada:** `192.168.12.0/24`
 
@@ -195,19 +195,6 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ---
 
-# Metodologia Operacional
-
-1. Reconhecimento de superfície  
-2. Enumeração de serviços  
-3. Ataques de autenticação  
-4. Exploração remota  
-5. Pós-exploração  
-6. Análise de logs  
-7. Criação de regras de detecção  
-8. Documentação técnica
-
----
-
 # Enumeração com Nmap
 
 ```bash
@@ -279,12 +266,12 @@ sudo systemctl restart wazuh-manager
 
 # Evolução Planejada (Roadmap)
 
-- [ ] Integração da VM Windows (win2k8)
-- [ ] Simulação de movimentação lateral
-- [ ] Implementação de alertas baseados em MITRE ATT&CK
-- [ ] Dashboards personalizados no Wazuh
-- [ ] Simulação de resposta a incidente documentada
-- [ ] Criação de playbooks SOC
+-  Integração da VM Windows (win2k8)
+-  Simulação de movimentação lateral
+-  Implementação de alertas baseados em MITRE ATT&CK
+-  Dashboards personalizados no Wazuh
+-  Simulação de resposta a incidente documentada
+-  Criação de playbooks SOC
 
 ---
 
