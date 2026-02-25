@@ -17,7 +17,7 @@ O ambiente integra:
 - Entender a geração de logs em diferentes serviços
 - Analisar como um SIEM correlaciona eventos
 - Criar regras customizadas de detecção
-- Simular rotina de SOC (detecção, triagem, resposta)
+- Simular perspectiva de SOC
 - Elaborar documentação técnica
 
 ---
