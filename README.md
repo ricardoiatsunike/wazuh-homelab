@@ -248,7 +248,7 @@ gobuster dir -u http://192.168.12.100 -w /usr/share/wordlists/dirb/common.txt
 
 ---
 
-## Engenharia de Detecção com Wazuh
+## Detecção com Wazuh
 
 Arquivo de regras customizadas:
 
@@ -275,13 +275,12 @@ sudo systemctl restart wazuh-manager
 
 ---
 
-## Evolução Planejada (Roadmap)
+## Roadmap
 
 - Integração da VM Windows (win2k8)
-- Simulação de movimentação lateral
 - Implementação de alertas baseados em MITRE ATT&CK
 - Dashboards personalizados no Wazuh
-- Simulação de resposta a incidente documentada
+- Simulação de resposta a incidente
 - Criação de playbooks SOC
 
 ---
