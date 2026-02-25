@@ -1,14 +1,14 @@
 ## Homelab de Cibersegurança com Wazuh e Metasploitable 3
 
-Documentação do desenvolvimento e utilização de um ambiente controlado de cibersegurança voltado para estudo prático ofensivo e monitoramento defensivo.
+Documentação do desenvolvimento e uso de um ambiente controlado voltado ao estudo prático ofensivo e monitoramento defensivo.
 
 O ambiente integra:
 
 - Wazuh como plataforma SIEM
 - VM Metasploitable 3 como alvo vulnerável
 - Ferramentas ofensivas executadas via WSL2
-- VMware Workstation Pro para segmentação e virtualização
-
+- VMware Workstation Pro
+  
 ---
 
 ## Objetivos do Projeto
@@ -185,7 +185,7 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ---
 
-## Metodologia Operacional
+## Metodologia
 
 1. Reconhecimento de superfície  
 2. Enumeração de serviços  
