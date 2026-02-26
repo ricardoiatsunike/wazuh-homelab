@@ -212,8 +212,7 @@ nmap -sV -p1-1000 192.168.12.100
 ```
 <img width="738" height="181" alt="image" src="https://github.com/user-attachments/assets/390741d4-ee85-46c6-9c9b-66ac3c001c43" />
 
-Scan de versão (-sV) – O que você usou
-O que é:
+Scan de versão (-sV) – O que foi usado:
 
     Estabelece conexão completa com o serviço
 
