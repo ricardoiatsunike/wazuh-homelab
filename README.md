@@ -200,12 +200,33 @@ sudo tail -f /var/ossec/logs/ossec.log
 
 ## Enumeração com Nmap
 
+No papel de um analista SOC, é importante reconhecer os sinais de cada tipo de scan:
+
+    SYN scan (-sS) Conexões incompletas, muitos SYN_RECV
+    Scan de versão (-sV) Conexões estabelecidas com banners
+    Scan agressivo (-A) Múltiplas conexões, scripts rodando, padrões anômalos
+    Scripts NSE  Requisições HTTP estranhas, consultas SMB, etc.
+
 ```bash
-nmap -sS -sV -p445 --script smb-enum-shares,smb-os-discovery 192.168.12.100
-nmap -sV -p21 --script ftp-anon,ftp-vsftpd-backdoor 192.168.12.100
-nmap -sV -p22 --script ssh-auth-methods 192.168.12.100
-nmap -sV -p80 --script http-enum,http-methods,http-title 192.168.12.100
+nmap -sV -p1-1000 192.168.12.100
 ```
+<img width="738" height="181" alt="image" src="https://github.com/user-attachments/assets/390741d4-ee85-46c6-9c9b-66ac3c001c43" />
+
+Scan de versão (-sV) – O que você usou
+O que é:
+
+    Estabelece conexão completa com o serviço
+
+    Envia probes para extrair banner (versão)
+
+Perspectiva defensiva (Logs):
+
+        Apache: access.log com GET / ou HEAD /
+
+        SSH: tentativas de conexão sem autenticação
+
+        FTP: comandos STAT, SYST
+
 
 ---
 
