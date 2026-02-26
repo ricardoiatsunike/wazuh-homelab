@@ -238,29 +238,6 @@ Perspectiva defensiva (Logs):
 
 ---
 
-## Exploração Remota com Metasploit
-
-```bash
-msfconsole
-search samba
-use exploit/unix/misc/distcc_exec
-use exploit/multi/http/tomcat_mgr_upload
-use auxiliary/scanner/postgres/postgres_login
-```
-
-<img width="313" height="151" alt="image" src="https://github.com/user-attachments/assets/d61e0c0b-bb79-4a39-af7c-d64938440aef" />
-
-
----
-
-## Descoberta de Vulnerabilidades Web
-
-```bash
-nikto -h http://192.168.12.100
-gobuster dir -u http://192.168.12.100 -w /usr/share/wordlists/dirb/common.txt
-```
-
----
 
 ## Detecção com Wazuh
 
@@ -293,7 +270,6 @@ sudo systemctl restart wazuh-manager
 
 - Integração da VM Windows (win2k8)
 - Implementação de alertas baseados em MITRE ATT&CK
-- Dashboards personalizados no Wazuh
 - Simulação de resposta a incidente
 - Criação de playbooks SOC
 
