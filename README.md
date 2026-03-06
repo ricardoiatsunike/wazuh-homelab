@@ -278,8 +278,8 @@ sudo systemctl restart wazuh-manager
 
 ## Referências
 
-- [🔗 Documentação Oficial Wazuh](https://documentation.wazuh.com)
-- [🔗 Metasploitable 3 – Rapid7](https://github.com/rapid7/metasploitable3/)
-- [🔗 Nmap Documentation](https://nmap.org/docs.html)
-- [🔗 Hydra – Kali Tools](https://www.kali.org/tools/hydra/)
-- [🔗 Metasploit Documentation](https://docs.metasploit.com/)
+- [🔗 Wazuh](https://documentation.wazuh.com)
+- [🔗 Metasploitable3](https://github.com/rapid7/metasploitable3/)
+- [🔗 Nmap](https://nmap.org/docs.html)
+- [🔗 Hydra](https://www.kali.org/tools/hydra/)
+- [🔗 Metasploit](https://docs.metasploit.com/)
