@@ -23,7 +23,7 @@ O ambiente integra:
 ---
 
 <details>
-<summary><h2><b>Clique aqui para visualizar a arquitetura do projeto</b></h2></summary>
+<summary><h2><b>Clique aqui para ver a arquitetura do projeto</b></h2></summary>
 
 • Host: Windows  
 • WSL2 - ambiente ofensivo
