@@ -229,7 +229,7 @@ Perspectiva defensiva (Logs):
 
 ---
 
-## Ataques de Autenticação com Hydra
+## Teste de Autenticação com Hydra (Brute-force SSH)
 
 <img width="844" height="251" alt="image" src="https://github.com/user-attachments/assets/e6c5f533-13ac-4b23-8066-f94dbfafbc82" />
 
